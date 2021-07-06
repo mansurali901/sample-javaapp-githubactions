@@ -42,6 +42,28 @@
 
 	<build>
 		<plugins>
+
+			<plugin>
+				<groupId>com.lewisd</groupId>
+				<artifactId>lint-maven-plugin</artifactId>
+				<version>0.0.8</version>
+				<configuration>
+					<failOnViolation>false</failOnViolation>
+					<onlyRunRules>
+						<rule>ExecutionId</rule>
+					</onlyRunRules>
+					<xmlOutputFile>${project.build.directory}/maven-lint-result.xml</xmlOutputFile>
+				</configuration>
+				<executions>
+					<execution>
+						<id>pom-lint</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
