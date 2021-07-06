@@ -42,7 +42,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
     name: Publish - Docker Hub
-    runs-on: ubuntu-18.04
     needs: [test, sonar]
     env:
       REPO: ${{ secrets.DOCKER_REPO }}
